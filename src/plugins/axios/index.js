@@ -1,5 +1,10 @@
 import axios from "axios";
+import interceptors from "./interceptors";
 
-const instanse = axios.create({});
+const instance = axios.create({
+  baseURL: process.env.VUE_APP_API_URL
+});
 
-export default instanse;
+interceptors(instance);
+
+export default instance;
